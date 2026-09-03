@@ -2,6 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("TyreVision JS loaded successfully");
 
+    /* =========================================================
+       CONFIGURATION
+       ========================================================= */
+
+    // Deployed Spring Boot + OpenCV backend on Render
+    const API_BASE_URL =
+        "https://autoguardian-ai-backend.onrender.com";
+
+    const TYRE_ANALYZE_URL =
+        `${API_BASE_URL}/api/tyre/analyze`;
+
 
     /* =========================================================
        HTML ELEMENTS
@@ -67,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
        ========================================================= */
 
     const requiredElements = {
-
         tyreImageInput,
         browseBtn,
         changeImageBtn,
@@ -86,14 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         riskBadge,
         scoreCircle,
         recommendationCard
-
     };
 
-
-    for (
-        const [elementName, element]
-        of Object.entries(requiredElements)
-    ) {
+    for (const [elementName, element] of Object.entries(requiredElements)) {
 
         if (!element) {
 
@@ -139,12 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
             event.stopPropagation();
         }
 
-
         if (analysisRunning) {
-
             return;
         }
-
 
         tyreImageInput.value = "";
 
@@ -173,14 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function () {
 
             const file =
-
                 this.files &&
                 this.files.length > 0
-
                     ? this.files[0]
-
                     : null;
-
 
             if (!file) {
 
@@ -193,32 +191,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             const allowedImageTypes = [
-
                 "image/jpeg",
-
                 "image/png",
-
                 "image/webp"
-
             ];
 
 
             if (
-                !allowedImageTypes.includes(
-                    file.type
-                )
+                !allowedImageTypes.includes(file.type)
             ) {
 
                 alert(
                     "Please select a JPG, JPEG, PNG or WEBP image."
                 );
 
-
                 this.value = "";
 
-
                 selectedImage = null;
-
 
                 return;
             }
@@ -251,12 +240,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             stopProgress();
 
-
             analysisRunning = false;
 
-
             analyzeBtn.disabled = false;
-
 
             changeImageBtn.disabled = false;
 
@@ -269,41 +255,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 "================================"
             );
 
-
             console.log(
                 "NEW TYRE SELECTED"
             );
-
 
             console.log(
                 "Filename:",
                 file.name
             );
 
-
             console.log(
                 "File size:",
                 file.size
             );
-
 
             console.log(
                 "Content type:",
                 file.type
             );
 
-
             console.log(
                 "Last modified:",
                 file.lastModified
             );
 
-
             console.log(
                 "Image token:",
                 fileToken
             );
-
 
             console.log(
                 "================================"
@@ -318,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "hidden"
             );
 
-
             resultSection.classList.add(
                 "hidden"
             );
@@ -329,11 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
              */
 
             updateProgress(
-
                 0,
-
                 "Preparing tyre image"
-
             );
 
 
@@ -372,7 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     tyrePreview.src =
                         imageURL;
 
-
                     scanImage.src =
                         imageURL;
 
@@ -381,11 +355,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         "hidden"
                     );
 
-
                     previewContainer.classList.remove(
                         "hidden"
                     );
-
 
                     imageActions.classList.remove(
                         "hidden"
@@ -405,12 +377,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Unable to read tyre image"
                     );
 
-
                     selectedImage = null;
 
-
                     tyreImageInput.value = "";
-
 
                     alert(
                         "Unable to read the selected image."
@@ -503,9 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         analysisRunning = true;
 
-
         analyzeBtn.disabled = true;
-
 
         changeImageBtn.disabled = true;
 
@@ -514,41 +481,39 @@ document.addEventListener("DOMContentLoaded", () => {
             "================================"
         );
 
-
         console.log(
             "STARTING TYRE ANALYSIS"
         );
-
 
         console.log(
             "Request token:",
             requestToken
         );
 
-
         console.log(
             "Image token:",
             imageToken
         );
-
 
         console.log(
             "Sending filename:",
             file.name
         );
 
-
         console.log(
             "Sending file size:",
             file.size
         );
-
 
         console.log(
             "Sending last modified:",
             file.lastModified
         );
 
+        console.log(
+            "Backend URL:",
+            TYRE_ANALYZE_URL
+        );
 
         console.log(
             "================================"
@@ -559,18 +524,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "hidden"
         );
 
-
         scanningSection.classList.remove(
             "hidden"
         );
 
 
         scanningSection.scrollIntoView({
-
             behavior: "smooth",
-
             block: "start"
-
         });
 
 
@@ -586,37 +547,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         formData.append(
-
             "tyreImage",
-
             file,
-
             file.name
-
         );
 
 
         try {
 
+            /*
+             * Send tyre image to deployed Render backend.
+             */
+
             const response =
                 await fetch(
-
-                    "http://localhost:8080/api/tyre/analyze"
-                    +
-                    "?requestTime="
-                    +
+                    TYRE_ANALYZE_URL +
+                    "?requestTime=" +
                     Date.now(),
-
                     {
-
                         method: "POST",
-
                         body: formData,
-
                         cache: "no-store"
-
                     }
-
                 );
 
 
@@ -627,7 +579,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(
                 "RAW BACKEND RESPONSE:"
             );
-
 
             console.log(
                 responseText
@@ -651,7 +602,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     responseText
                 );
 
-
                 throw new Error(
                     "Backend returned invalid JSON."
                 );
@@ -665,11 +615,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     result.message ||
                     result.error ||
                     (
-                        "Backend returned status "
-                        +
+                        "Backend returned status " +
                         response.status
                     )
-
                 );
             }
 
@@ -683,7 +631,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     result.message ||
                     result.error ||
                     "Unable to analyze tyre."
-
                 );
             }
 
@@ -716,7 +663,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     result.tyreScore ??
                     result.healthScore ??
                     result.score
-
                 );
 
 
@@ -752,7 +698,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     result.risk ??
                     result.safetyRisk ??
                     result.riskLevel
-
                 );
 
 
@@ -765,12 +710,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Backend risk and score range mismatch."
                 );
 
-
                 console.warn(
                     "Backend risk:",
                     backendRisk
                 );
-
 
                 console.warn(
                     "Score based risk:",
@@ -836,7 +779,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     getReplacementText(
                         scoreRisk
                     )
-
             };
 
 
@@ -844,41 +786,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 "================================"
             );
 
-
             console.log(
                 "FRESH NORMALIZED TYRE RESULT"
             );
-
 
             console.log(
                 "Filename:",
                 normalizedResult.filename
             );
 
-
             console.log(
                 "Health score:",
                 normalizedResult.tyreScore
             );
-
 
             console.log(
                 "Final risk:",
                 normalizedResult.risk
             );
 
-
             console.log(
                 "Condition:",
                 normalizedResult.tyreCondition
             );
 
-
             console.log(
                 "Complete result:",
                 normalizedResult
             );
-
 
             console.log(
                 "================================"
@@ -937,11 +872,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 alert(
-
-                    "Tyre analysis failed.\n\n"
-                    +
+                    "Tyre analysis failed.\n\n" +
                     error.message
-
                 );
             }
 
@@ -954,9 +886,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 analysisRunning = false;
 
-
                 analyzeBtn.disabled = false;
-
 
                 changeImageBtn.disabled = false;
             }
@@ -1222,110 +1152,77 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         setText(
-
             "tyreScore",
-
             Math.round(
                 Number(
                     result.tyreScore
                 )
             )
-
         );
 
 
         setText(
-
             "tyreStatus",
-
             result.tyreStatus ||
             getStatusFromRisk(
                 result.risk
             )
-
         );
 
 
         setText(
-
             "tyreMessage",
-
             result.tyreMessage ||
             "Tyre analysis completed."
-
         );
 
 
         setText(
-
             "wearClassification",
-
             result.tyreCondition ||
             "Unable to Determine"
-
         );
 
 
         setText(
-
             "tyreRisk",
-
             result.risk
-
         );
 
 
         setText(
-
             "remainingLife",
-
             result.remainingLife
-
         );
 
 
         setText(
-
             "recommendedAction",
-
             result.recommendedAction
-
         );
 
 
         setText(
-
             "recommendationTitle",
-
             result.recommendationTitle
-
         );
 
 
         setText(
-
             "recommendationText",
-
             result.recommendationText
-
         );
 
 
         setText(
-
             "replacementPrediction",
-
             result.replacementPrediction
-
         );
 
 
         updateScoreCircle(
-
             result.tyreScore,
-
             result.risk
-
         );
 
 
@@ -1354,11 +1251,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         resultSection.scrollIntoView({
-
             behavior: "smooth",
-
             block: "start"
-
         });
     }
 
@@ -1376,8 +1270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const report = {
 
             id:
-                "tyre-"
-                +
+                "tyre-" +
                 Date.now(),
 
             module:
@@ -1450,7 +1343,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             timestamp:
                 analysisDate.getTime()
-
         };
 
 
@@ -1461,13 +1353,10 @@ document.addEventListener("DOMContentLoaded", () => {
              */
 
             localStorage.setItem(
-
                 "tyreVisionResult",
-
                 JSON.stringify(
                     report
                 )
-
             );
 
 
@@ -1511,7 +1400,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         historyError
                     );
 
-
                     analysisHistory = [];
                 }
             }
@@ -1538,13 +1426,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             localStorage.setItem(
-
                 "analysisHistory",
-
                 JSON.stringify(
                     analysisHistory
                 )
-
             );
 
 
@@ -1552,22 +1437,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "================================"
             );
 
-
             console.log(
                 "TYREVISION REPORT SAVED"
             );
-
 
             console.log(
                 report
             );
 
-
             console.log(
                 "Total analysis reports:",
                 analysisHistory.length
             );
-
 
             console.log(
                 "================================"
@@ -1653,19 +1534,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         riskBadge.textContent =
 
-            "Safety Risk: "
-            +
+            "Safety Risk: " +
             risk;
 
 
         riskBadge.classList.remove(
-
             "risk-low",
-
             "risk-moderate",
-
             "risk-high"
-
         );
 
 
@@ -1702,13 +1578,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateRecommendationCard(risk) {
 
         recommendationCard.classList.remove(
-
             "recommendation-low",
-
             "recommendation-moderate",
-
             "recommendation-high"
-
         );
 
 
@@ -1745,24 +1617,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateResultCards(risk) {
 
         const resultCards =
-
             document.querySelectorAll(
                 ".result-card"
             );
 
 
         resultCards.forEach(
-
             function (card) {
 
                 card.classList.remove(
-
                     "state-low",
-
                     "state-moderate",
-
                     "state-high"
-
                 );
 
 
@@ -1790,7 +1656,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     "state-low"
                 );
             }
-
         );
     }
 
@@ -1859,11 +1724,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!element) {
 
             console.warn(
-
                 "Unable to update missing element:",
-
                 elementId
-
             );
 
             return;
@@ -1871,7 +1733,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         element.textContent =
-
             value ?? "--";
     }
 
@@ -1889,11 +1750,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         updateProgress(
-
             0,
-
             "Preparing tyre image"
-
         );
 
 
@@ -1930,7 +1788,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     let progressStatus =
-
                         "Preparing tyre image";
 
 
@@ -1939,7 +1796,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     ) {
 
                         progressStatus =
-
                             "Checking tyre surface";
                     }
 
@@ -1949,7 +1805,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     ) {
 
                         progressStatus =
-
                             "Detecting visible damage";
                     }
 
@@ -1959,7 +1814,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     ) {
 
                         progressStatus =
-
                             "Calculating tyre condition";
                     }
 
@@ -1972,13 +1826,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         ),
 
                         progressStatus
-
                     );
 
                 },
 
                 120
-
             );
     }
 
@@ -1993,11 +1845,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         updateProgress(
-
             100,
-
             "Analysis completed"
-
         );
     }
 
@@ -2016,7 +1865,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 progressTimer
             );
 
-
             progressTimer = null;
         }
     }
@@ -2032,21 +1880,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
         scanProgress.style.width =
-
-            value
-            +
+            value +
             "%";
 
 
         progressValue.textContent =
-
-            value
-            +
+            value +
             "%";
 
 
         scanStatus.textContent =
-
             status;
     }
 
@@ -2063,10 +1906,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             event.preventDefault();
 
-
             resetModule();
         }
-
     );
 
 
@@ -2083,18 +1924,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         activeRequestToken++;
 
-
         selectedImageToken++;
-
 
         stopProgress();
 
-
         selectedImage = null;
 
-
         analysisRunning = false;
-
 
         tyreImageInput.value = "";
 
@@ -2110,7 +1946,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         analyzeBtn.disabled = false;
-
 
         changeImageBtn.disabled = false;
 
@@ -2141,11 +1976,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         updateProgress(
-
             0,
-
             "Preparing tyre image"
-
         );
 
 
@@ -2210,34 +2042,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         riskBadge.textContent =
-
             "Safety Risk: --";
 
 
         riskBadge.classList.remove(
-
             "risk-low",
-
             "risk-moderate",
-
             "risk-high"
-
         );
 
 
         recommendationCard.classList.remove(
-
             "recommendation-low",
-
             "recommendation-moderate",
-
             "recommendation-high"
-
         );
 
 
         const resultCards =
-
             document.querySelectorAll(
                 ".result-card"
             );
@@ -2248,16 +2070,11 @@ document.addEventListener("DOMContentLoaded", () => {
             function (card) {
 
                 card.classList.remove(
-
                     "state-low",
-
                     "state-moderate",
-
                     "state-high"
-
                 );
             }
-
         );
 
 
@@ -2281,7 +2098,6 @@ document.addEventListener("DOMContentLoaded", () => {
             top: 0,
 
             behavior: "smooth"
-
         });
     }
 
@@ -2297,52 +2113,50 @@ document.addEventListener("DOMContentLoaded", () => {
             function (resolve) {
 
                 window.setTimeout(
-
                     resolve,
-
                     milliseconds
-
                 );
             }
-
         );
     }
 
+
+    /* =========================================================
+       INITIALIZATION
+       ========================================================= */
 
     console.log(
         "================================"
     );
 
-
     console.log(
         "TyreVision initialization complete"
     );
-
 
     console.log(
         "Report storage integration ready"
     );
 
+    console.log(
+        "Backend:",
+        API_BASE_URL
+    );
 
     console.log(
         "Health classification:"
     );
 
-
     console.log(
         "70 - 100 = Healthy / Low"
     );
-
 
     console.log(
         "31 - 69 = Visible Wear / Moderate"
     );
 
-
     console.log(
         "0 - 30 = Heavily Damaged / High"
     );
-
 
     console.log(
         "================================"
