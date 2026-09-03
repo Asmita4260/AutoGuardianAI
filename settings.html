@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Settings | AutoGuardian AI</title>
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- SETTINGS CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/settings.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-car-side"></i>
+
+            </div>
+
+
+            <div class="logo-text">
+
+                <span>AutoGuardian</span>
+
+                <span>AI</span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a href="index.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="vehicle-health.html">
+
+                <i class="fa-solid fa-car"></i>
+
+                <span>Vehicle Health</span>
+
+            </a>
+
+
+            <a href="tyrevision.html">
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+                <span>TyreVision AI</span>
+
+            </a>
+
+
+            <a href="saferide.html">
+
+                <i class="fa-solid fa-eye"></i>
+
+                <span>SafeRide AI</span>
+
+            </a>
+
+
+            <a href="autocare.html">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <span>AutoCare AI</span>
+
+            </a>
+
+
+            <a href="reports.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>Reports</span>
+
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="active"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <header class="page-header">
+
+
+            <div>
+
+                <p class="page-eyebrow">
+
+                    AUTOGUARDIAN SYSTEM
+
+                </p>
+
+
+                <h1>
+
+                    Settings
+
+                </h1>
+
+
+                <p class="page-description">
+
+                    Manage safety alerts, AI analysis preferences
+                    and AutoGuardian AI system data.
+
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="save-settings-btn"
+                id="saveSettingsBtn"
+            >
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Settings
+
+            </button>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             SETTINGS GRID
+             ================================================= -->
+
+        <section class="settings-grid">
+
+
+
+            <!-- =================================================
+                 SAFETY ALERT SETTINGS
+                 ================================================= -->
+
+            <article class="settings-card">
+
+
+                <div class="settings-card-header">
+
+
+                    <div class="settings-icon safety-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Safety Alerts
+
+                        </h2>
+
+
+                        <p>
+
+                            Configure AutoGuardian AI safety
+                            alert preferences.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DROWSINESS AUDIO ALERT -->
+
+                <div class="setting-row">
+
+
+                    <div class="setting-info">
+
+
+                        <h3>
+
+                            Drowsiness Audio Alert
+
+                        </h3>
+
+
+                        <p>
+
+                            Play an audio warning when SafeRide AI
+                            detects driver drowsiness.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <label class="toggle-switch">
+
+
+                        <input
+                            type="checkbox"
+                            id="audioAlertToggle"
+                            checked
+                        >
+
+
+                        <span class="toggle-slider"></span>
+
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- SAFETY NOTIFICATIONS -->
+
+                <div class="setting-row">
+
+
+                    <div class="setting-info">
+
+
+                        <h3>
+
+                            Safety Notifications
+
+                        </h3>
+
+
+                        <p>
+
+                            Display safety warnings when a high-risk
+                            condition is detected.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <label class="toggle-switch">
+
+
+                        <input
+                            type="checkbox"
+                            id="notificationToggle"
+                            checked
+                        >
+
+
+                        <span class="toggle-slider"></span>
+
+
+                    </label>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 AI ANALYSIS PREFERENCES
+                 ================================================= -->
+
+            <article class="settings-card">
+
+
+                <div class="settings-card-header">
+
+
+                    <div class="settings-icon ai-icon">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            AI Analysis Preferences
+
+                        </h2>
+
+
+                        <p>
+
+                            Configure the default safety analysis
+                            sensitivity.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="setting-block">
+
+
+                    <label
+                        class="setting-label"
+                        for="riskSensitivity"
+                    >
+
+                        Risk Sensitivity
+
+                    </label>
+
+
+                    <p class="setting-help-text">
+
+                        Select how sensitively AutoGuardian AI
+                        should interpret potential safety risks.
+
+                    </p>
+
+
+                    <select
+                        id="riskSensitivity"
+                        class="settings-select"
+                    >
+
+
+                        <option value="low">
+
+                            Low Sensitivity
+
+                        </option>
+
+
+                        <option
+                            value="moderate"
+                            selected
+                        >
+
+                            Moderate Sensitivity
+
+                        </option>
+
+
+                        <option value="high">
+
+                            High Sensitivity
+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 SYSTEM INFORMATION
+                 ================================================= -->
+
+            <article class="settings-card">
+
+
+                <div class="settings-card-header">
+
+
+                    <div class="settings-icon system-icon">
+
+                        <i class="fa-solid fa-microchip"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            System Information
+
+                        </h2>
+
+
+                        <p>
+
+                            AutoGuardian AI prototype system
+                            details.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="system-info-list">
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            System
+
+                        </span>
+
+
+                        <strong>
+
+                            AutoGuardian AI
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Prototype Version
+
+                        </span>
+
+
+                        <strong>
+
+                            1.0.0
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            AI Modules
+
+                        </span>
+
+
+                        <strong>
+
+                            3 Active Modules
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Storage
+
+                        </span>
+
+
+                        <strong>
+
+                            Local Browser Storage
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            System Status
+
+                        </span>
+
+
+                        <strong class="system-active">
+
+                            <span class="status-dot"></span>
+
+                            Operational
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 ANALYSIS DATA
+                 ================================================= -->
+
+            <article class="settings-card danger-card">
+
+
+                <div class="settings-card-header">
+
+
+                    <div class="settings-icon data-icon">
+
+                        <i class="fa-solid fa-database"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Analysis Data
+
+                        </h2>
+
+
+                        <p>
+
+                            Manage stored AutoGuardian AI
+                            analysis history.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="data-summary">
+
+
+                    <div>
+
+
+                        <span>
+
+                            Stored Analysis Reports
+
+                        </span>
+
+
+                        <strong id="storedReportCount">
+
+                            0
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="danger-zone">
+
+
+                    <div>
+
+
+                        <h3>
+
+                            Clear Analysis History
+
+                        </h3>
+
+
+                        <p>
+
+                            Permanently remove TyreVision AI,
+                            SafeRide AI and AutoCare AI analysis
+                            history from this browser.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="clear-history-btn"
+                        id="clearHistoryBtn"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Clear History
+
+                    </button>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 ABOUT AND SUPPORT
+                 ================================================= -->
+
+            <article class="settings-card about-card">
+
+
+                <div class="settings-card-header">
+
+
+                    <div class="settings-icon about-icon">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            About & Support
+
+                        </h2>
+
+
+                        <p>
+
+                            Project information and developer
+                            contact details.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="project-profile">
+
+
+                    <div class="project-logo">
+
+                        <i class="fa-solid fa-car-side"></i>
+
+                    </div>
+
+
+                    <div>
+
+
+                        <h3>
+
+                            AutoGuardian AI
+
+                        </h3>
+
+
+                        <p>
+
+                            Edge-Based Vehicle Health &
+                            Driver Safety System
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="system-info-list">
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Project
+
+                        </span>
+
+
+                        <strong>
+
+                            AutoGuardian AI
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Developer
+
+                        </span>
+
+
+                        <strong>
+
+                            Asmita Dawange
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Project Category
+
+                        </span>
+
+
+                        <strong>
+
+                            Edge AI for Vehicle Safety
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Prototype Version
+
+                        </span>
+
+
+                        <strong>
+
+                            1.0.0
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="system-info-row">
+
+                        <span>
+
+                            Contact
+
+                        </span>
+
+
+                        <strong>
+
+                            asmita.dawange24@sanjivani.edu.in
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <a
+                    href="mailto:asmita.dawange24@sanjivani.edu.in?subject=AutoGuardian%20AI%20Support"
+                    class="contact-support-btn"
+                >
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Contact Developer
+
+                </a>
+
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SETTINGS STATUS MESSAGE
+             ================================================= -->
+
+        <div
+            class="settings-message"
+            id="settingsMessage"
+        >
+
+
+            <i class="fa-solid fa-circle-check"></i>
+
+
+            <span id="settingsMessageText">
+
+                Settings saved successfully.
+
+            </span>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SETTINGS JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/settings.js"></script>
+
+
+</body>
+
+</html>

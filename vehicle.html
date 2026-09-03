@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vehicle Health | AutoGuardian AI</title>
+
+    <link rel="stylesheet" href="css/vehicle.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-car-side"></i>
+        </div>
+
+        <span>
+            AutoGuardian<br>AI
+        </span>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="dashboard.html" class="menu-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="vehicle.html" class="menu-item active">
+
+            <i class="fa-solid fa-car"></i>
+
+            <span>Vehicle Health</span>
+
+        </a>
+
+
+        <a href="tyrevision.html" class="menu-item">
+
+            <i class="fa-solid fa-circle-dot"></i>
+
+            <span>TyreVision AI</span>
+
+        </a>
+
+
+        <a href="saferide.html" class="menu-item">
+
+            <i class="fa-solid fa-eye"></i>
+
+            <span>SafeRide AI</span>
+
+        </a>
+
+
+        <a href="autocare.html" class="menu-item">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <span>AutoCare AI</span>
+
+        </a>
+
+
+        <a href="reports.html" class="menu-item">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Reports</span>
+
+        </a>
+
+
+        <a href="#" class="menu-item">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+    <a href="dashboard.html" class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Dashboard
+
+    </a>
+
+</aside>
+
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+        <div>
+
+            <span class="module-label">
+                AUTOGUARDIAN INTELLIGENCE
+            </span>
+
+            <h1>
+                Vehicle Health & Predictive Maintenance
+            </h1>
+
+            <p>
+                Analyze vehicle parameters and predict maintenance risks.
+            </p>
+
+        </div>
+
+
+        <div class="ai-status">
+
+            <span></span>
+
+            AI SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+    <!-- VEHICLE INFORMATION -->
+
+    <section class="panel">
+
+        <div class="panel-heading">
+
+            <div class="heading-icon">
+
+                <i class="fa-solid fa-car"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Vehicle Information
+                </h2>
+
+                <p>
+                    Enter current vehicle information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="vehicle-form">
+
+
+            <div class="input-group">
+
+                <label for="vehicleModel">
+                    Vehicle Model
+                </label>
+
+                <input
+                    type="text"
+                    id="vehicleModel"
+                    placeholder="Example: Tata Nexon"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="vehicleType">
+                    Vehicle Type
+                </label>
+
+                <select id="vehicleType">
+
+                    <option value="petrol">
+                        Petrol
+                    </option>
+
+                    <option value="diesel">
+                        Diesel
+                    </option>
+
+                    <option value="electric">
+                        Electric Vehicle
+                    </option>
+
+                    <option value="hybrid">
+                        Hybrid
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="vehicleYear">
+                    Manufacturing Year
+                </label>
+
+                <input
+                    type="number"
+                    id="vehicleYear"
+                    placeholder="2024"
+                    min="1990"
+                    max="2026"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="vehicleKm">
+                    Current Kilometres
+                </label>
+
+                <input
+                    type="number"
+                    id="vehicleKm"
+                    placeholder="25000"
+                    min="0"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VEHICLE SENSOR PARAMETERS -->
+
+    <section class="panel">
+
+        <div class="telemetry-header">
+
+
+            <div class="panel-heading telemetry-heading">
+
+                <div class="heading-icon purple-icon">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Vehicle Sensor Parameters
+                    </h2>
+
+                    <p>
+                        Enter simulated Edge AI sensor readings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="simulation-badge">
+
+                <i class="fa-solid fa-flask"></i>
+
+                SENSOR SIMULATION MODE
+
+            </div>
+
+        </div>
+
+
+        <div class="simulation-note">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span>
+
+                Sensor values are simulated for prototype testing.
+                In a real vehicle, telemetry can be collected from
+                the vehicle ECU, OBD-II interface and connected
+                vehicle sensors.
+
+            </span>
+
+        </div>
+
+
+        <div class="sensor-grid">
+
+
+            <!-- ENGINE TEMPERATURE -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div>
+
+                        <span>
+                            Engine Temperature
+                        </span>
+
+                        <h3 id="temperatureValue">
+                            85°C
+                        </h3>
+
+                    </div>
+
+
+                    <div class="sensor-icon temperature-icon">
+
+                        <i class="fa-solid fa-temperature-half"></i>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="temperature"
+                    min="50"
+                    max="130"
+                    value="85"
+                >
+
+
+                <div class="range-label">
+
+                    <span>50°C</span>
+
+                    <span>130°C</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BATTERY HEALTH -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div>
+
+                        <span>
+                            Battery Health
+                        </span>
+
+                        <h3 id="batteryValue">
+                            90%
+                        </h3>
+
+                    </div>
+
+
+                    <div class="sensor-icon battery-icon">
+
+                        <i class="fa-solid fa-battery-three-quarters"></i>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="battery"
+                    min="0"
+                    max="100"
+                    value="90"
+                >
+
+
+                <div class="range-label">
+
+                    <span>0%</span>
+
+                    <span>100%</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BRAKE HEALTH -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div>
+
+                        <span>
+                            Brake Health
+                        </span>
+
+                        <h3 id="brakeValue">
+                            85%
+                        </h3>
+
+                    </div>
+
+
+                    <div class="sensor-icon brake-icon">
+
+                        <i class="fa-solid fa-circle-stop"></i>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="brake"
+                    min="0"
+                    max="100"
+                    value="85"
+                >
+
+
+                <div class="range-label">
+
+                    <span>0%</span>
+
+                    <span>100%</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COOLANT LEVEL -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div>
+
+                        <span>
+                            Coolant Level
+                        </span>
+
+                        <h3 id="coolantValue">
+                            80%
+                        </h3>
+
+                    </div>
+
+
+                    <div class="sensor-icon coolant-icon">
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="coolant"
+                    min="0"
+                    max="100"
+                    value="80"
+                >
+
+
+                <div class="range-label">
+
+                    <span>0%</span>
+
+                    <span>100%</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="diagnosticBtn"
+            class="diagnostic-btn"
+        >
+
+            <i class="fa-solid fa-brain"></i>
+
+            Run AI Diagnostic
+
+        </button>
+
+    </section>
+
+
+    <!-- AI ANALYSIS LOADER -->
+
+    <section
+        id="analysisLoader"
+        class="analysis-loader hidden"
+    >
+
+        <div class="scanner"></div>
+
+
+        <h2>
+            Edge AI Diagnostic Running...
+        </h2>
+
+
+        <p>
+            Analyzing vehicle sensor parameters.
+        </p>
+
+    </section>
+
+
+    <!-- DIAGNOSTIC RESULTS -->
+
+    <section
+        id="diagnosticResult"
+        class="results-section hidden"
+    >
+
+
+        <!-- HEALTH SUMMARY -->
+
+        <div class="health-summary">
+
+
+            <div
+                class="score-circle"
+                id="scoreCircle"
+            >
+
+                <div class="score-content">
+
+                    <span id="healthScore">
+                        0
+                    </span>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-content">
+
+                <span class="result-label">
+
+                    AI VEHICLE HEALTH RESULT
+
+                </span>
+
+
+                <h2 id="healthStatus">
+
+                    Vehicle Health Analysis
+
+                </h2>
+
+
+                <p id="healthMessage">
+
+                    Diagnostic result will appear here.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT PANELS -->
+
+        <div class="results-grid">
+
+
+            <!-- PREDICTIVE MAINTENANCE -->
+
+            <div class="result-panel">
+
+                <div class="result-title">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h3>
+                        Predictive Maintenance Analysis
+                    </h3>
+
+                </div>
+
+
+                <div class="prediction-row">
+
+                    <span>
+                        Predicted Issue
+                    </span>
+
+                    <strong id="predictedIssue">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="prediction-row">
+
+                    <span>
+                        Risk Level
+                    </span>
+
+                    <strong id="riskLevel">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="prediction-row">
+
+                    <span>
+                        Recommended Action
+                    </span>
+
+                    <strong id="recommendedAction">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="prediction-row">
+
+                    <span>
+                        Service Prediction
+                    </span>
+
+                    <strong id="servicePrediction">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI ALERTS -->
+
+            <div class="result-panel">
+
+                <div class="result-title">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <h3>
+                        AI Diagnostic Alerts
+                    </h3>
+
+                </div>
+
+
+                <div
+                    id="alertsContainer"
+                    class="alerts-container"
+                >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script type="module" src="js/vehicle.js"></script>
+
+</body>
+
+</html>

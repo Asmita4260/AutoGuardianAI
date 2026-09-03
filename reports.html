@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports | AutoGuardian AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/reports.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-car-side"></i>
+
+            </div>
+
+
+            <div class="brand-name">
+
+                AutoGuardian
+
+                <span>AI</span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="vehicle.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-car"></i>
+
+                <span>Vehicle Health</span>
+
+            </a>
+
+
+            <a
+                href="tyrevision.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+                <span>TyreVision AI</span>
+
+            </a>
+
+
+            <a
+                href="saferide.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-eye"></i>
+
+                <span>SafeRide AI</span>
+
+            </a>
+
+
+            <a
+                href="autocare.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <span>AutoCare AI</span>
+
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item active"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>Reports</span>
+
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <header class="page-header">
+
+
+            <div>
+
+                <p class="module-label">
+
+                    AUTOGUARDIAN INTELLIGENCE
+
+                </p>
+
+
+                <h1>
+
+                    Vehicle Safety Reports
+
+                </h1>
+
+
+                <p class="page-description">
+
+                    Review AI analysis history, vehicle health,
+                    driver safety and maintenance insights.
+
+                </p>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="download-report-btn"
+                id="downloadReportBtn"
+            >
+
+                <i class="fa-solid fa-download"></i>
+
+                Download Report
+
+            </button>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             OVERALL SAFETY SUMMARY
+             ================================================= -->
+
+        <section class="summary-card">
+
+
+            <div class="summary-heading">
+
+
+                <div class="section-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+
+                        Overall Vehicle Safety
+
+                    </h2>
+
+
+                    <p>
+
+                        Combined AutoGuardian AI safety overview.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="overall-summary">
+
+
+                <!-- SCORE -->
+
+                <div
+                    class="overall-score-circle"
+                    id="overallScoreCircle"
+                >
+
+                    <div class="score-inner">
+
+                        <span id="overallScore">
+
+                            --
+
+                        </span>
+
+
+                        <small>
+
+                            /100
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="overall-status-content">
+
+
+                    <p class="result-label">
+
+                        OVERALL SAFETY STATUS
+
+                    </p>
+
+
+                    <h2 id="overallStatus">
+
+                        No Analysis Available
+
+                    </h2>
+
+
+                    <p id="overallMessage">
+
+                        Complete AutoGuardian AI analysis modules
+                        to generate your vehicle safety summary.
+
+                    </p>
+
+
+                    <span
+                        class="overall-risk-badge"
+                        id="overallRiskBadge"
+                    >
+
+                        Safety Risk: --
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MODULE HEALTH CARDS
+             ================================================= -->
+
+        <section class="module-summary-grid">
+
+
+            <!-- VEHICLE HEALTH -->
+
+            <article class="module-summary-card">
+
+
+                <div class="module-card-header">
+
+
+                    <div class="module-icon vehicle-icon">
+
+                        <i class="fa-solid fa-car"></i>
+
+                    </div>
+
+
+                    <span
+                        class="module-status-badge"
+                        id="vehicleModuleBadge"
+                    >
+
+                        No Data
+
+                    </span>
+
+
+                </div>
+
+
+                <p class="module-card-label">
+
+                    Vehicle Health
+
+                </p>
+
+
+                <h3 id="vehicleHealthValue">
+
+                    --
+
+                </h3>
+
+
+                <div class="module-progress-track">
+
+                    <div
+                        class="module-progress-bar"
+                        id="vehicleHealthBar"
+                    ></div>
+
+                </div>
+
+
+                <small id="vehicleHealthText">
+
+                    Complete AutoCare AI analysis
+
+                </small>
+
+
+            </article>
+
+
+
+            <!-- TYRE HEALTH -->
+
+            <article class="module-summary-card">
+
+
+                <div class="module-card-header">
+
+
+                    <div class="module-icon tyre-icon">
+
+                        <i class="fa-solid fa-circle-dot"></i>
+
+                    </div>
+
+
+                    <span
+                        class="module-status-badge"
+                        id="tyreModuleBadge"
+                    >
+
+                        No Data
+
+                    </span>
+
+
+                </div>
+
+
+                <p class="module-card-label">
+
+                    Tyre Health
+
+                </p>
+
+
+                <h3 id="tyreHealthValue">
+
+                    --
+
+                </h3>
+
+
+                <div class="module-progress-track">
+
+                    <div
+                        class="module-progress-bar"
+                        id="tyreHealthBar"
+                    ></div>
+
+                </div>
+
+
+                <small id="tyreHealthText">
+
+                    Complete TyreVision AI analysis
+
+                </small>
+
+
+            </article>
+
+
+
+            <!-- DRIVER STATUS -->
+
+            <article class="module-summary-card">
+
+
+                <div class="module-card-header">
+
+
+                    <div class="module-icon driver-icon">
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </div>
+
+
+                    <span
+                        class="module-status-badge"
+                        id="driverModuleBadge"
+                    >
+
+                        No Data
+
+                    </span>
+
+
+                </div>
+
+
+                <p class="module-card-label">
+
+                    Driver Status
+
+                </p>
+
+
+                <h3 id="driverStatusValue">
+
+                    --
+
+                </h3>
+
+
+                <div class="module-progress-track">
+
+                    <div
+                        class="module-progress-bar"
+                        id="driverStatusBar"
+                    ></div>
+
+                </div>
+
+
+                <small id="driverStatusText">
+
+                    Complete SafeRide AI monitoring
+
+                </small>
+
+
+            </article>
+
+
+
+            <!-- MAINTENANCE -->
+
+            <article class="module-summary-card">
+
+
+                <div class="module-card-header">
+
+
+                    <div class="module-icon maintenance-icon">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </div>
+
+
+                    <span
+                        class="module-status-badge"
+                        id="maintenanceModuleBadge"
+                    >
+
+                        No Data
+
+                    </span>
+
+
+                </div>
+
+
+                <p class="module-card-label">
+
+                    Maintenance Risk
+
+                </p>
+
+
+                <h3 id="maintenanceRiskValue">
+
+                    --
+
+                </h3>
+
+
+                <div class="module-progress-track">
+
+                    <div
+                        class="module-progress-bar"
+                        id="maintenanceRiskBar"
+                    ></div>
+
+                </div>
+
+
+                <small id="maintenanceRiskText">
+
+                    Complete AutoCare AI analysis
+
+                </small>
+
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORT HISTORY
+             ================================================= -->
+
+        <section class="reports-card">
+
+
+            <!-- REPORT HEADER -->
+
+            <div class="reports-card-header">
+
+
+                <div class="reports-heading">
+
+
+                    <div class="section-icon">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Analysis History
+
+                        </h2>
+
+
+                        <p>
+
+                            Recent AutoGuardian AI analysis results.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FILTER -->
+
+                <div class="report-filter-wrapper">
+
+
+                    <i class="fa-solid fa-filter"></i>
+
+
+                    <select
+                        id="moduleFilter"
+                        class="module-filter"
+                    >
+
+                        <option value="all">
+
+                            All Modules
+
+                        </option>
+
+
+                        <option value="TyreVision AI">
+
+                            TyreVision AI
+
+                        </option>
+
+
+                        <option value="SafeRide AI">
+
+                            SafeRide AI
+
+                        </option>
+
+
+                        <option value="AutoCare AI">
+
+                            AutoCare AI
+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- REPORT TABLE -->
+
+            <div class="report-table-wrapper">
+
+
+                <table class="report-table">
+
+
+                    <thead>
+
+
+                        <tr>
+
+                            <th>
+
+                                Module
+
+                            </th>
+
+
+                            <th>
+
+                                Analysis Date
+
+                            </th>
+
+
+                            <th>
+
+                                Health / Status
+
+                            </th>
+
+
+                            <th>
+
+                                Risk Level
+
+                            </th>
+
+
+                            <th>
+
+                                Recommended Action
+
+                            </th>
+
+
+                            <th>
+
+                                Report
+
+                            </th>
+
+                        </tr>
+
+
+                    </thead>
+
+
+
+                    <tbody id="reportTableBody">
+
+
+                        <!--
+                            Reports are dynamically inserted
+                            by reports.js.
+                        -->
+
+
+                    </tbody>
+
+
+                </table>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-report-state"
+                    id="emptyReportState"
+                >
+
+
+                    <div class="empty-icon">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        No Analysis Reports Yet
+
+                    </h3>
+
+
+                    <p>
+
+                        Complete TyreVision AI, SafeRide AI or
+                        AutoCare AI analysis to generate reports.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             AI SAFETY INSIGHT
+             ================================================= -->
+
+        <section
+            class="safety-insight-card"
+            id="safetyInsightCard"
+        >
+
+
+            <div class="insight-icon">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+
+            <div>
+
+
+                <p class="insight-label">
+
+                    AUTOGUARDIAN AI INSIGHT
+
+                </p>
+
+
+                <h3 id="safetyInsightTitle">
+
+                    Complete Vehicle Analysis
+
+                </h3>
+
+
+                <p id="safetyInsightText">
+
+                    AutoGuardian AI combines tyre condition,
+                    driver monitoring and predictive maintenance
+                    results to provide a unified vehicle safety view.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script src="js/reports.js?v=final2"></script>
+
+
+</body>
+
+</html>

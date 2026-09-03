@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AutoCare AI | AutoGuardian AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/autocare.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+
+<div class="app-layout">
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-car-side"></i>
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <span>AutoGuardian</span>
+
+                <span>AI</span>
+
+            </div>
+
+        </div>
+
+
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+
+            <a
+                href="vehicle.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-car"></i>
+
+                <span>Vehicle Health</span>
+
+            </a>
+
+
+
+            <a
+                href="tyrevision.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+                <span>TyreVision AI</span>
+
+            </a>
+
+
+
+            <a
+                href="saferide.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-eye"></i>
+
+                <span>SafeRide AI</span>
+
+            </a>
+
+
+
+            <a
+                href="autocare.html"
+                class="nav-item active"
+            >
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <span>AutoCare AI</span>
+
+            </a>
+
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>Reports</span>
+
+            </a>
+
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="page-header">
+
+
+            <div>
+
+                <p class="module-label">
+                    PREDICTIVE MAINTENANCE MODULE
+                </p>
+
+
+                <h1>
+                    AutoCare AI
+                </h1>
+
+
+                <p class="page-description">
+
+                    Analyze vehicle health parameters and predict
+                    maintenance requirements before failures occur.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="ai-status">
+
+                <span class="status-dot"></span>
+
+                MAINTENANCE AI ONLINE
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================================
+             VEHICLE INFORMATION
+        ====================================================== -->
+
+        <section class="content-card">
+
+
+            <div class="section-heading">
+
+
+                <div class="heading-icon vehicle-icon">
+
+                    <i class="fa-solid fa-car"></i>
+
+                </div>
+
+
+
+                <div>
+
+                    <h2>
+                        Vehicle Information
+                    </h2>
+
+
+                    <p>
+                        Enter basic vehicle and service information.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="vehicleModel">
+                        Vehicle Model
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="vehicleModel"
+                        placeholder="Example: Tata Nexon"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="currentMileage">
+                        Current Mileage
+                    </label>
+
+
+                    <div class="input-unit">
+
+                        <input
+                            type="number"
+                            id="currentMileage"
+                            min="0"
+                            placeholder="25000"
+                        >
+
+                        <span>km</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="lastServiceMileage">
+                        Last Service Mileage
+                    </label>
+
+
+                    <div class="input-unit">
+
+                        <input
+                            type="number"
+                            id="lastServiceMileage"
+                            min="0"
+                            placeholder="20000"
+                        >
+
+                        <span>km</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="lastServiceDate">
+                        Last Service Date
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="lastServiceDate"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SENSOR PARAMETERS
+        ====================================================== -->
+
+        <section class="content-card">
+
+
+            <div class="section-heading">
+
+
+                <div class="heading-icon sensor-icon">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                </div>
+
+
+
+                <div>
+
+                    <h2>
+                        Vehicle Sensor Parameters
+                    </h2>
+
+
+                    <p>
+                        Enter simulated Edge AI sensor readings.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="simulation-note">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                Sensor values are simulated for prototype analysis.
+
+            </div>
+
+
+
+            <div class="sensor-grid">
+
+
+                <!-- ENGINE TEMPERATURE -->
+
+                <article class="sensor-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Engine Temperature
+                            </p>
+
+
+                            <strong id="engineTemperatureValue">
+                                85°C
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small temperature">
+
+                            <i class="fa-solid fa-temperature-high"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <input
+                        type="range"
+                        id="engineTemperature"
+                        min="50"
+                        max="130"
+                        value="85"
+                    >
+
+
+                    <div class="range-values">
+
+                        <span>50°C</span>
+
+                        <span>130°C</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- BATTERY HEALTH -->
+
+                <article class="sensor-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Battery Health
+                            </p>
+
+
+                            <strong id="batteryHealthValue">
+                                88%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small battery">
+
+                            <i class="fa-solid fa-car-battery"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <input
+                        type="range"
+                        id="batteryHealth"
+                        min="0"
+                        max="100"
+                        value="88"
+                    >
+
+
+                    <div class="range-values">
+
+                        <span>0%</span>
+
+                        <span>100%</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- BRAKE WEAR -->
+
+                <article class="sensor-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Brake Wear
+                            </p>
+
+
+                            <strong id="brakeWearValue">
+                                15%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small brake">
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <input
+                        type="range"
+                        id="brakeWear"
+                        min="0"
+                        max="100"
+                        value="15"
+                    >
+
+
+                    <div class="range-values">
+
+                        <span>0%</span>
+
+                        <span>100%</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- ENGINE OIL -->
+
+                <article class="sensor-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Engine Oil Level
+                            </p>
+
+
+                            <strong id="oilLevelValue">
+                                82%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small oil">
+
+                            <i class="fa-solid fa-oil-can"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <input
+                        type="range"
+                        id="oilLevel"
+                        min="0"
+                        max="100"
+                        value="82"
+                    >
+
+
+                    <div class="range-values">
+
+                        <span>0%</span>
+
+                        <span>100%</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- COOLANT LEVEL -->
+
+                <article class="sensor-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Coolant Level
+                            </p>
+
+
+                            <strong id="coolantLevelValue">
+                                90%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small coolant">
+
+                            <i class="fa-solid fa-droplet"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <input
+                        type="range"
+                        id="coolantLevel"
+                        min="0"
+                        max="100"
+                        value="90"
+                    >
+
+
+                    <div class="range-values">
+
+                        <span>0%</span>
+
+                        <span>100%</span>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- SERVICE DISTANCE -->
+
+                <article class="sensor-card service-distance-card">
+
+
+                    <div class="sensor-header">
+
+                        <div>
+
+                            <p>
+                                Distance Since Service
+                            </p>
+
+
+                            <strong id="serviceDistanceValue">
+                                0 km
+                            </strong>
+
+                        </div>
+
+
+                        <div class="sensor-icon-small service">
+
+                            <i class="fa-solid fa-road"></i>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <p class="sensor-description">
+
+                        Automatically calculated using current mileage
+                        and last service mileage.
+
+                    </p>
+
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- ANALYZE BUTTON -->
+
+            <div class="analyze-wrapper">
+
+
+                <button
+                    type="button"
+                    class="analyze-btn"
+                    id="analyzeVehicleBtn"
+                >
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Analyze Vehicle Health
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ANALYSIS LOADING
+        ====================================================== -->
+
+        <section
+            class="analysis-card hidden"
+            id="analysisSection"
+        >
+
+
+            <div class="loader"></div>
+
+
+            <h2>
+                Analyzing Vehicle Health
+            </h2>
+
+
+            <p id="analysisStatus">
+                Reading vehicle parameters
+            </p>
+
+
+
+            <div class="progress-container">
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-bar"
+                        id="analysisProgress"
+                    ></div>
+
+                </div>
+
+
+                <strong id="progressValue">
+                    0%
+                </strong>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RESULT SECTION
+        ====================================================== -->
+
+        <section
+            class="result-section hidden"
+            id="resultSection"
+        >
+
+
+            <!-- RESULT SUMMARY -->
+
+            <div
+                class="result-summary"
+                id="resultSummary"
+            >
+
+
+                <div
+                    class="score-circle"
+                    id="scoreCircle"
+                >
+
+
+                    <div class="score-inner">
+
+                        <span id="vehicleHealthScore">
+                            --
+                        </span>
+
+
+                        <small>
+                            /100
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="result-content">
+
+
+                    <p class="result-label">
+                        AUTOCARE AI RESULT
+                    </p>
+
+
+                    <h2 id="vehicleStatus">
+                        Vehicle Health Result
+                    </h2>
+
+
+                    <p id="vehicleMessage">
+                        Vehicle analysis completed.
+                    </p>
+
+
+                    <span
+                        class="risk-badge"
+                        id="riskBadge"
+                    >
+
+                        Maintenance Risk: --
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPONENT STATUS -->
+
+            <div class="result-grid">
+
+
+                <article class="result-card">
+
+                    <div class="result-icon engine-result">
+
+                        <i class="fa-solid fa-temperature-high"></i>
+
+                    </div>
+
+
+                    <p>
+                        Engine Status
+                    </p>
+
+
+                    <h3 id="engineStatus">
+                        --
+                    </h3>
+
+                </article>
+
+
+
+                <article class="result-card">
+
+                    <div class="result-icon battery-result">
+
+                        <i class="fa-solid fa-car-battery"></i>
+
+                    </div>
+
+
+                    <p>
+                        Battery Status
+                    </p>
+
+
+                    <h3 id="batteryStatus">
+                        --
+                    </h3>
+
+                </article>
+
+
+
+                <article class="result-card">
+
+                    <div class="result-icon brake-result">
+
+                        <i class="fa-solid fa-circle-exclamation"></i>
+
+                    </div>
+
+
+                    <p>
+                        Brake Condition
+                    </p>
+
+
+                    <h3 id="brakeStatus">
+                        --
+                    </h3>
+
+                </article>
+
+
+
+                <article class="result-card">
+
+                    <div class="result-icon maintenance-result">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </div>
+
+
+                    <p>
+                        Recommended Action
+                    </p>
+
+
+                    <h3 id="recommendedAction">
+                        --
+                    </h3>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- MAINTENANCE RECOMMENDATION -->
+
+            <div
+                class="recommendation-card"
+                id="recommendationCard"
+            >
+
+
+                <div class="recommendation-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <p class="recommendation-label">
+                        PREDICTIVE MAINTENANCE RECOMMENDATION
+                    </p>
+
+
+                    <h3 id="recommendationTitle">
+                        --
+                    </h3>
+
+
+                    <p id="recommendationText">
+                        --
+                    </p>
+
+
+                    <strong id="nextServicePrediction">
+                        --
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPONENT HEALTH DETAILS -->
+
+            <div class="component-health-card">
+
+
+                <div class="component-health-heading">
+
+
+                    <div>
+
+                        <h2>
+                            Component Health Analysis
+                        </h2>
+
+
+                        <p>
+                            AI-based maintenance parameter assessment.
+                        </p>
+
+                    </div>
+
+
+                    <i class="fa-solid fa-chart-simple"></i>
+
+
+                </div>
+
+
+
+                <div class="health-bars">
+
+
+                    <div class="health-item">
+
+
+                        <div class="health-label">
+
+                            <span>
+                                Engine Health
+                            </span>
+
+
+                            <strong id="engineHealthPercent">
+                                --%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-track">
+
+                            <div
+                                class="health-fill"
+                                id="engineHealthBar"
+                            ></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+
+                        <div class="health-label">
+
+                            <span>
+                                Battery Health
+                            </span>
+
+
+                            <strong id="batteryHealthPercent">
+                                --%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-track">
+
+                            <div
+                                class="health-fill"
+                                id="batteryHealthBar"
+                            ></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+
+                        <div class="health-label">
+
+                            <span>
+                                Brake Health
+                            </span>
+
+
+                            <strong id="brakeHealthPercent">
+                                --%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-track">
+
+                            <div
+                                class="health-fill"
+                                id="brakeHealthBar"
+                            ></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="health-item">
+
+
+                        <div class="health-label">
+
+                            <span>
+                                Fluid Health
+                            </span>
+
+
+                            <strong id="fluidHealthPercent">
+                                --%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="health-track">
+
+                            <div
+                                class="health-fill"
+                                id="fluidHealthBar"
+                            ></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ANALYZE AGAIN -->
+
+            <div class="another-wrapper">
+
+
+                <button
+                    type="button"
+                    class="analyze-btn"
+                    id="analyzeAgainBtn"
+                >
+
+                    <i class="fa-solid fa-arrows-rotate"></i>
+
+                    Analyze Again
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<script src="js/autocare.js"></script>
+
+
+</body>
+
+</html>

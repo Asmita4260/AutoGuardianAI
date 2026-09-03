@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TyreVision AI | AutoGuardian AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/tyrevision.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ===================================================== -->
+<!-- SIDEBAR -->
+<!-- ===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="logo">
+
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-car-side"></i>
+
+        </div>
+
+
+        <span>
+
+            AutoGuardian<br>AI
+
+        </span>
+
+
+    </div>
+
+
+
+    <nav class="sidebar-menu">
+
+
+        <a
+            href="dashboard.html"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="vehicle.html"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-car"></i>
+
+            <span>
+                Vehicle Health
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="tyrevision.html"
+            class="menu-item active"
+        >
+
+            <i class="fa-solid fa-circle-dot"></i>
+
+            <span>
+                TyreVision AI
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="saferide.html"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-eye"></i>
+
+            <span>
+                SafeRide AI
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="autocare.html"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <span>
+                AutoCare AI
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="reports.html"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#"
+            class="menu-item"
+        >
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <a
+        href="dashboard.html"
+        class="back-btn"
+    >
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Dashboard
+
+    </a>
+
+
+</aside>
+
+
+
+<!-- ===================================================== -->
+<!-- MAIN CONTENT -->
+<!-- ===================================================== -->
+
+<main class="main-content">
+
+
+    <div class="tyre-page">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <header class="page-header">
+
+
+            <div>
+
+
+                <p class="module-label">
+
+                    COMPUTER VISION MODULE
+
+                </p>
+
+
+                <h1>
+
+                    TyreVision AI
+
+                </h1>
+
+
+                <p class="page-description">
+
+                    Check visible tyre condition using image analysis.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="vision-status">
+
+
+                <span class="status-dot"></span>
+
+
+                VISION AI ONLINE
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ================================================= -->
+        <!-- UPLOAD CARD -->
+        <!-- ================================================= -->
+
+        <section class="main-card">
+
+
+            <div class="section-heading">
+
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <h2>
+
+                        Check Your Tyre
+
+                    </h2>
+
+
+                    <p>
+
+                        Upload a clear close-up photo of the tyre tread.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- REAL FILE INPUT -->
+
+            <input
+                type="file"
+                id="tyreImageInput"
+                accept="image/jpeg,image/png,image/webp"
+                class="file-input"
+            >
+
+
+
+            <!-- ================================================= -->
+            <!-- UPLOAD AREA -->
+            <!-- ================================================= -->
+
+            <div
+                class="upload-area"
+                id="uploadArea"
+            >
+
+
+                <!-- DEFAULT UPLOAD CONTENT -->
+
+                <div
+                    class="upload-content"
+                    id="uploadContent"
+                >
+
+
+                    <div class="upload-icon">
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Upload Tyre Image
+
+                    </h3>
+
+
+                    <p>
+
+                        Choose a clear tyre photo from your device.
+
+                    </p>
+
+
+
+                    <button
+                        type="button"
+                        class="choose-image-btn"
+                        id="browseBtn"
+                    >
+
+                        <i class="fa-solid fa-folder-open"></i>
+
+                        Choose Image
+
+                    </button>
+
+
+
+                    <small>
+
+                        Supported formats: JPG, JPEG, PNG, WEBP
+
+                    </small>
+
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- IMAGE PREVIEW -->
+                <!-- ================================================= -->
+
+                <div
+                    class="preview-container hidden"
+                    id="previewContainer"
+                >
+
+
+                    <img
+                        id="tyrePreview"
+                        class="tyre-preview"
+                        alt="Selected tyre"
+                    >
+
+
+
+                    <div class="preview-message">
+
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+
+                        Image ready for analysis
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- IMAGE ACTION BUTTONS -->
+            <!-- ================================================= -->
+
+            <div
+                class="image-actions hidden"
+                id="imageActions"
+            >
+
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="changeImageBtn"
+                >
+
+                    <i class="fa-solid fa-image"></i>
+
+                    Change Image
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="analyzeBtn"
+                >
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Analyze Tyre
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- GUIDELINES -->
+            <!-- ================================================= -->
+
+            <div class="guidelines">
+
+
+                <h3>
+
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+
+                    For Better Results
+
+
+                </h3>
+
+
+
+                <div class="guideline-grid">
+
+
+                    <div class="guideline-item">
+
+
+                        <i class="fa-solid fa-sun"></i>
+
+
+                        <span>
+
+                            Use good lighting
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="guideline-item">
+
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+
+                        <span>
+
+                            Keep tyre centered
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="guideline-item">
+
+
+                        <i class="fa-solid fa-camera"></i>
+
+
+                        <span>
+
+                            Take a close photo
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="guideline-item">
+
+
+                        <i class="fa-solid fa-eye"></i>
+
+
+                        <span>
+
+                            Avoid blurry images
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- SCANNING SECTION -->
+        <!-- ================================================= -->
+
+        <section
+            class="scan-card hidden"
+            id="scanningSection"
+        >
+
+
+            <div class="loader"></div>
+
+
+            <h2>
+
+                Checking Your Tyre
+
+            </h2>
+
+
+            <p id="scanStatus">
+
+                Preparing tyre image
+
+            </p>
+
+
+
+            <img
+                id="scanImage"
+                class="hidden"
+                alt=""
+            >
+
+
+
+            <div class="progress-container">
+
+
+                <div class="progress-track">
+
+
+                    <div
+                        class="progress-bar"
+                        id="scanProgress"
+                    ></div>
+
+
+                </div>
+
+
+
+                <strong id="progressValue">
+
+                    0%
+
+                </strong>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- RESULT SECTION -->
+        <!-- ================================================= -->
+
+        <section
+            class="result-section hidden"
+            id="resultSection"
+        >
+
+
+
+            <!-- ================================================= -->
+            <!-- RESULT SUMMARY -->
+            <!-- ================================================= -->
+
+            <div class="result-summary">
+
+
+                <div
+                    class="score-circle"
+                    id="scoreCircle"
+                >
+
+
+                    <div class="score-inner">
+
+
+                        <span id="tyreScore">
+
+                            --
+
+                        </span>
+
+
+                        <small>
+
+                            /100
+
+                        </small>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="result-content">
+
+
+                    <p class="result-label">
+
+                        TYREVISION AI RESULT
+
+                    </p>
+
+
+                    <h2 id="tyreStatus">
+
+                        Tyre Analysis Result
+
+                    </h2>
+
+
+                    <p id="tyreMessage">
+
+                        Tyre analysis completed.
+
+                    </p>
+
+
+
+                    <span
+                        class="risk-badge"
+                        id="riskBadge"
+                    >
+
+                        Safety Risk: --
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- RESULT CARDS -->
+            <!-- ================================================= -->
+
+            <div class="result-grid">
+
+
+
+                <!-- TYRE CONDITION -->
+
+                <article class="result-card">
+
+
+                    <div class="card-icon condition-icon">
+
+                        <i class="fa-solid fa-circle-dot"></i>
+
+                    </div>
+
+
+                    <p>
+
+                        Tyre Condition
+
+                    </p>
+
+
+                    <h3 id="wearClassification">
+
+                        --
+
+                    </h3>
+
+
+                </article>
+
+
+
+                <!-- SAFETY RISK -->
+
+                <article class="result-card">
+
+
+                    <div class="card-icon safety-icon">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+
+                    <p>
+
+                        Safety Risk
+
+                    </p>
+
+
+                    <h3 id="tyreRisk">
+
+                        --
+
+                    </h3>
+
+
+                </article>
+
+
+
+                <!-- TYRE LIFE -->
+
+                <article class="result-card">
+
+
+                    <div class="card-icon life-icon">
+
+                        <i class="fa-solid fa-battery-half"></i>
+
+                    </div>
+
+
+                    <p>
+
+                        Estimated Tyre Life
+
+                    </p>
+
+
+                    <h3 id="remainingLife">
+
+                        --
+
+                    </h3>
+
+
+                </article>
+
+
+
+                <!-- RECOMMENDED ACTION -->
+
+                <article class="result-card">
+
+
+                    <div class="card-icon action-icon">
+
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                    </div>
+
+
+                    <p>
+
+                        Recommended Action
+
+                    </p>
+
+
+                    <h3 id="recommendedAction">
+
+                        --
+
+                    </h3>
+
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- SAFETY RECOMMENDATION -->
+            <!-- ================================================= -->
+
+            <div
+                class="recommendation-card"
+                id="recommendationCard"
+            >
+
+
+                <div class="recommendation-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <p class="recommendation-label">
+
+                        SAFETY RECOMMENDATION
+
+                    </p>
+
+
+                    <h3 id="recommendationTitle">
+
+                        --
+
+                    </h3>
+
+
+                    <p id="recommendationText">
+
+                        --
+
+                    </p>
+
+
+                    <strong id="replacementPrediction">
+
+                        --
+
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- ANALYZE ANOTHER TYRE -->
+            <!-- ================================================= -->
+
+            <div class="another-wrapper">
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="anotherTyreBtn"
+                >
+
+
+                    <i class="fa-solid fa-arrows-rotate"></i>
+
+
+                    Analyze Another Tyre
+
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ========================================================= -->
+<!-- TYREVISION JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script src="js/tyrevision.js?v=calibrated-20260704-2"></script>
+
+
+</body>
+
+</html>

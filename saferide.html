@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SafeRide AI | AutoGuardian AI</title>
+
+
+    <!-- =====================================================
+         SAFERIDE CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/saferide.css"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+</head>
+
+
+<body>
+
+
+<div class="app-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+
+            <div class="brand-icon">
+
+                <i class="fa-solid fa-car-side"></i>
+
+            </div>
+
+
+            <div class="brand-name">
+
+                AutoGuardian
+
+                <span>AI</span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+             ================================================= -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="vehicle.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-car"></i>
+
+                <span>
+                    Vehicle Health
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="tyrevision.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+                <span>
+                    TyreVision AI
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="saferide.html"
+                class="nav-item active"
+            >
+
+                <i class="fa-solid fa-eye"></i>
+
+                <span>
+                    SafeRide AI
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="autocare.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                <span>
+                    AutoCare AI
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <header class="page-header">
+
+
+            <div>
+
+
+                <p class="module-label">
+
+                    AUTOGUARDIAN INTELLIGENCE
+
+                </p>
+
+
+                <h1>
+
+                    SafeRide AI
+
+                </h1>
+
+
+                <p class="page-description">
+
+                    Intelligent driver monitoring and real-time
+                    drowsiness detection.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div
+                class="ai-status"
+                id="aiStatus"
+            >
+
+
+                <span class="status-dot"></span>
+
+
+                <span id="aiStatusText">
+
+                    DRIVER AI INITIALIZING
+
+                </span>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             DRIVER MONITORING CARD
+             ================================================= -->
+
+        <section class="monitoring-card">
+
+
+            <div class="section-heading">
+
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-video"></i>
+
+                </div>
+
+
+
+                <div>
+
+
+                    <h2>
+
+                        Driver Monitoring
+
+                    </h2>
+
+
+                    <p>
+
+                        Start the camera to monitor driver
+                        alertness in real time.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAMERA AREA
+                 ================================================= -->
+
+            <div
+                class="camera-area"
+                id="cameraArea"
+            >
+
+
+                <!-- CAMERA PLACEHOLDER -->
+
+                <div
+                    class="camera-placeholder"
+                    id="cameraPlaceholder"
+                >
+
+
+                    <div class="camera-placeholder-icon">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Camera Not Started
+
+                    </h3>
+
+
+                    <p>
+
+                        Start driver monitoring to activate
+                        the webcam.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LIVE CAMERA
+                     ================================================= -->
+
+                <video
+                    id="driverVideo"
+                    class="driver-video hidden"
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
+
+
+
+                <!-- =================================================
+                     FACE / EYE DETECTION CANVAS
+                     ================================================= -->
+
+                <canvas
+                    id="detectionCanvas"
+                    class="detection-canvas hidden"
+                ></canvas>
+
+
+
+                <!-- =================================================
+                     LIVE MONITORING INDICATOR
+                     ================================================= -->
+
+                <div
+                    class="live-indicator hidden"
+                    id="liveIndicator"
+                >
+
+
+                    <span class="live-dot"></span>
+
+
+                    LIVE MONITORING
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FACE DETECTION INDICATOR
+                     ================================================= -->
+
+                <div
+                    class="live-indicator hidden"
+                    id="faceDetectionIndicator"
+                    style="
+                        top: 20px;
+                        left: auto;
+                        right: 20px;
+                    "
+                >
+
+
+                    <i class="fa-solid fa-face-viewfinder"></i>
+
+
+                    <span id="faceDetectionText">
+
+                        SEARCHING FOR FACE
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MONITORING ACTIONS
+                 ================================================= -->
+
+            <div class="monitoring-actions">
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="startMonitoringBtn"
+                    disabled
+                >
+
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+
+                    Loading Driver AI
+
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="danger-btn hidden"
+                    id="stopMonitoringBtn"
+                >
+
+
+                    <i class="fa-solid fa-stop"></i>
+
+
+                    Stop Monitoring
+
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DRIVER STATUS SUMMARY
+             ================================================= -->
+
+        <section
+            class="driver-summary"
+            id="driverSummary"
+        >
+
+
+            <div
+                class="driver-status-circle status-idle"
+                id="driverStatusCircle"
+            >
+
+
+                <div class="status-circle-inner">
+
+
+                    <i
+                        class="fa-solid fa-user"
+                        id="driverStatusIcon"
+                    ></i>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="driver-summary-content">
+
+
+                <p class="result-label">
+
+                    SAFERIDE AI STATUS
+
+                </p>
+
+
+                <h2 id="driverStatusTitle">
+
+                    Monitoring Not Started
+
+                </h2>
+
+
+                <p id="driverStatusMessage">
+
+                    Start driver monitoring to check alertness.
+
+                </p>
+
+
+                <span
+                    class="status-badge status-idle-badge"
+                    id="driverStatusBadge"
+                >
+
+                    Driver Status: Idle
+
+                </span>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DRIVER METRICS
+             ================================================= -->
+
+        <section class="metrics-grid">
+
+
+            <!-- DRIVER STATUS -->
+
+            <article
+                class="metric-card"
+                id="driverStateCard"
+            >
+
+
+                <div class="metric-icon driver-icon">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+
+                <p>
+
+                    Driver Status
+
+                </p>
+
+
+                <h3 id="driverState">
+
+                    Idle
+
+                </h3>
+
+
+            </article>
+
+
+
+            <!-- EYE STATUS -->
+
+            <article
+                class="metric-card"
+                id="eyeStatusCard"
+            >
+
+
+                <div class="metric-icon eye-icon">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                </div>
+
+
+                <p>
+
+                    Eye Status
+
+                </p>
+
+
+                <h3 id="eyeStatus">
+
+                    Not Detected
+
+                </h3>
+
+
+            </article>
+
+
+
+            <!-- DROWSINESS RISK -->
+
+            <article
+                class="metric-card"
+                id="riskCard"
+            >
+
+
+                <div class="metric-icon risk-icon">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+
+                <p>
+
+                    Drowsiness Risk
+
+                </p>
+
+
+                <h3 id="drowsinessRisk">
+
+                    --
+
+                </h3>
+
+
+            </article>
+
+
+
+            <!-- MONITORING TIME -->
+
+            <article
+                class="metric-card"
+                id="monitoringTimeCard"
+            >
+
+
+                <div class="metric-icon time-icon">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                </div>
+
+
+                <p>
+
+                    Monitoring Time
+
+                </p>
+
+
+                <h3 id="monitoringTime">
+
+                    00:00
+
+                </h3>
+
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SAFETY RECOMMENDATION
+             ================================================= -->
+
+        <section
+            class="safety-card safety-idle"
+            id="safetyCard"
+        >
+
+
+            <div
+                class="safety-icon"
+                id="safetyIcon"
+            >
+
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+
+            </div>
+
+
+
+            <div class="safety-content">
+
+
+                <p class="safety-label">
+
+                    DRIVER SAFETY RECOMMENDATION
+
+                </p>
+
+
+                <h3 id="safetyTitle">
+
+                    SafeRide AI Ready
+
+                </h3>
+
+
+                <p id="safetyMessage">
+
+                    Start monitoring to analyze driver alertness.
+
+                </p>
+
+
+                <strong id="safetyAction">
+
+                    Camera monitoring is currently inactive.
+
+                </strong>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DROWSINESS ALERT
+             ================================================= -->
+
+        <section
+            class="drowsiness-alert hidden"
+            id="drowsinessAlert"
+        >
+
+
+            <div class="alert-animation">
+
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+
+            </div>
+
+
+
+            <div>
+
+
+                <p class="alert-label">
+
+                    SAFERIDE AI WARNING
+
+                </p>
+
+
+                <h2>
+
+                    Drowsiness Detected
+
+                </h2>
+
+
+                <p>
+
+                    Continuous eye closure has been detected.
+                    Stop the vehicle safely and take a break.
+
+                </p>
+
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="dismiss-alert-btn"
+                id="dismissAlertBtn"
+            >
+
+
+                <i class="fa-solid fa-check"></i>
+
+
+                Acknowledge
+
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     OPTIONAL ALARM AUDIO
+
+     If assets/drowsiness-alert.mp3 exists:
+     alarm sound + spoken warning will both work.
+
+     If the MP3 does not exist:
+     SafeRide JS will still use browser voice warning.
+     ========================================================= -->
+
+<audio
+    id="alertAudio"
+    preload="auto"
+>
+
+    <source
+        src="assets/drowsiness-alert.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<!-- =========================================================
+     SAFERIDE JAVASCRIPT
+
+     MediaPipe will be imported directly inside saferide.js.
+     DO NOT add vision_bundle.mjs here.
+     ========================================================= -->
+
+<script
+    type="module"
+    src="js/saferide.js?v=saferide-audio-final-20260704-2"
+></script>
+
+
+</body>
+
+</html>

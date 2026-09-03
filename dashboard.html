@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | AutoGuardian AI</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-car-side"></i>
+
+        <span>AutoGuardian AI</span>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="dashboard.html"
+           class="menu-item active">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="vehicle.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-car"></i>
+
+            <span>Vehicle Health</span>
+
+        </a>
+
+
+        <a href="tyrevision.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-circle-dot"></i>
+
+            <span>TyreVision AI</span>
+
+        </a>
+
+
+        <a href="saferide.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-eye"></i>
+
+            <span>SafeRide AI</span>
+
+        </a>
+
+
+        <a href="autocare.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <span>AutoCare AI</span>
+
+        </a>
+
+
+        <a href="reports.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Reports</span>
+
+        </a>
+
+
+        <a href="settings.html"
+           class="menu-item">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+    <button id="logoutBtn"
+            class="logout-btn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</aside>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main-content">
+
+
+    <!-- ================= TOP BAR ================= -->
+
+    <header class="topbar">
+
+        <div>
+
+            <h1 id="welcomeText">
+
+                Welcome Back 👋
+
+            </h1>
+
+            <p>
+
+                Here's your vehicle intelligence overview.
+
+            </p>
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+            <div class="notification">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>3</span>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="avatar">
+
+                    A
+
+                </div>
+
+
+                <div>
+
+                    <strong id="userName">
+
+                        User
+
+                    </strong>
+
+
+                    <small>
+
+                        Vehicle Owner
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= VEHICLE STATUS ================= -->
+
+    <section class="vehicle-banner">
+
+        <div>
+
+            <span class="live-status">
+
+                <i class="fa-solid fa-circle"></i>
+
+                VEHICLE CONNECTED
+
+            </span>
+
+
+            <h2>
+
+                Analyzing vehicle safety
+
+            </h2>
+
+
+            <p>
+
+                AutoGuardian AI is loading the latest analysis data.
+
+            </p>
+
+        </div>
+
+
+        <div class="health-score">
+
+            <span>
+
+                --
+
+            </span>
+
+
+            <p>
+
+                Overall Safety
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= HEALTH CARDS ================= -->
+
+    <section class="cards-grid">
+
+
+        <!-- ================= VEHICLE HEALTH ================= -->
+
+        <div class="health-card">
+
+            <div class="card-icon vehicle-icon">
+
+                <i class="fa-solid fa-car"></i>
+
+            </div>
+
+
+            <div class="card-header">
+
+                <span>
+
+                    Vehicle Health
+
+                </span>
+
+
+                <strong id="vehicleHealthValue">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="vehicleHealthBar"
+                     class="progress vehicle-progress"
+                     style="width: 0%;">
+
+                </div>
+
+            </div>
+
+
+            <p id="vehicleHealthText"
+               class="good">
+
+                No analysis available
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= TYRE HEALTH ================= -->
+
+        <div class="health-card">
+
+            <div class="card-icon tyre-icon">
+
+                <i class="fa-solid fa-circle-dot"></i>
+
+            </div>
+
+
+            <div class="card-header">
+
+                <span>
+
+                    Tyre Health
+
+                </span>
+
+
+                <strong id="tyreHealthValue">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="tyreHealthBar"
+                     class="progress tyre-progress"
+                     style="width: 0%;">
+
+                </div>
+
+            </div>
+
+
+            <p id="tyreHealthText"
+               class="good">
+
+                No analysis available
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= DRIVER STATUS ================= -->
+
+        <div class="health-card">
+
+            <div class="card-icon driver-icon">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+
+            <div class="card-header">
+
+                <span>
+
+                    Driver Status
+
+                </span>
+
+
+                <strong id="driverStatusValue">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div id="driverStatusBar"
+                     class="progress"
+                     style="width: 0%; background: #16a34a;">
+
+                </div>
+
+            </div>
+
+
+            <p id="driverStatusText"
+               class="good">
+
+                No driver analysis available
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= NEXT SERVICE ================= -->
+
+        <div class="health-card">
+
+            <div class="card-icon service-icon">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            </div>
+
+
+            <div class="card-header">
+
+                <span>
+
+                    Maintenance Risk
+
+                </span>
+
+
+                <strong id="nextServiceValue">
+
+                    --
+
+                </strong>
+
+            </div>
+
+
+            <div class="service-info">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+
+                <span id="nextServiceDate">
+
+                    No service prediction
+
+                </span>
+
+            </div>
+
+
+            <p id="nextServiceText"
+               class="warning">
+
+                Complete AutoCare analysis
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= QUICK ACTIONS ================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+
+                Quick Actions
+
+            </h2>
+
+
+            <p>
+
+                AI-powered vehicle tools
+
+            </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+
+            <a href="vehicle.html"
+               class="action-card">
+
+                <i class="fa-solid fa-stethoscope"></i>
+
+
+                <h3>
+
+                    Scan Vehicle
+
+                </h3>
+
+
+                <p>
+
+                    Analyze vehicle health
+
+                </p>
+
+            </a>
+
+
+
+            <a href="tyrevision.html"
+               class="action-card">
+
+                <i class="fa-solid fa-camera"></i>
+
+
+                <h3>
+
+                    Scan Tyres
+
+                </h3>
+
+
+                <p>
+
+                    AI tyre inspection
+
+                </p>
+
+            </a>
+
+
+
+            <a href="saferide.html"
+               class="action-card">
+
+                <i class="fa-solid fa-video"></i>
+
+
+                <h3>
+
+                    Driver Monitor
+
+                </h3>
+
+
+                <p>
+
+                    Start SafeRide AI
+
+                </p>
+
+            </a>
+
+
+
+            <a href="autocare.html"
+               class="action-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+
+                <h3>
+
+                    Predict Maintenance
+
+                </h3>
+
+
+                <p>
+
+                    AI service prediction
+
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= DASHBOARD LOWER SECTION ================= -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- ================= CHART ================= -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+
+                        Vehicle Health Trend
+
+                    </h2>
+
+
+                    <p>
+
+                        Latest AutoCare AI analysis
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="healthChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= RECENT ALERTS ================= -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+
+                        Recent AI Alerts
+
+                    </h2>
+
+
+                    <p>
+
+                        Latest AutoGuardian AI analysis updates
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="alerts-list">
+
+                <div class="alert-item info-alert">
+
+                    <div class="alert-icon">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+
+                            Loading AI Analysis
+
+                        </h4>
+
+
+                        <p>
+
+                            Retrieving the latest AutoGuardian AI analysis.
+
+                        </p>
+
+
+                        <small>
+
+                            Please wait
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ================= DASHBOARD SCRIPT ================= -->
+
+<script type="module"
+        src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>
